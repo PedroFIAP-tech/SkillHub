@@ -11,6 +11,7 @@ import { CourseListScreen } from '../screens/CourseListScreen';
 import { LoginScreen } from '../screens/LoginScreen'; 
 import { DetalhesCursoScreen } from '../screens/DetalhesCursoScreen';
 import { ProgressoScreen } from '../screens/ProgressoScreen';
+import { AppHeader } from '../components/AppHeader'; // <-- adicionado
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -32,7 +33,10 @@ export const RootNavigator = () => {
         <Stack.Screen
           name="CourseList"
           component={CourseListScreen}
-          options={{ title: 'SkillUp 🎓' }}
+          options={{
+            // substitui o header padrão pelo nosso componente
+            header: (props) => <AppHeader {...props} />,
+          }}
         />
         
         <Stack.Screen
